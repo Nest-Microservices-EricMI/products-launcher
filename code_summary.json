@@ -1,0 +1,65 @@
+{
+    "projectName": "Nest-Microservices-Launcher",
+    "techStack": {
+        "frameworks": [
+            "NestJS"
+        ],
+        "communication": [
+            "NATS"
+        ],
+        "orm": [
+            "Prisma"
+        ],
+        "runtime": [
+            "Node.js"
+        ],
+        "containerization": [
+            "Docker",
+            "Docker Compose"
+        ]
+    },
+    "microservices": [
+        {
+            "name": "client-gateway",
+            "type": "API Gateway",
+            "internalPort": 3000,
+            "features": [
+                "Routing",
+                "Request Validation",
+                "NATS Bridge"
+            ]
+        },
+        {
+            "name": "products-ms",
+            "type": "Backend Service",
+            "internalPort": 3001,
+            "database": "SQLite/Prisma",
+            "features": [
+                "CRUD Products",
+                "Inventory"
+            ]
+        },
+        {
+            "name": "orders-ms",
+            "type": "Backend Service",
+            "internalPort": 3002,
+            "database": "PostgreSQL/Prisma",
+            "features": [
+                "Order Creation",
+                "Status Management",
+                "Payment Integration"
+            ]
+        },
+        {
+            "name": "auth-ms",
+            "type": "Backend Service",
+            "internalPort": 3004,
+            "database": "Prisma",
+            "features": [
+                "User Auth",
+                "JWT Generation",
+                "User Management"
+            ]
+        }
+    ]
+}
